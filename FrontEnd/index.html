@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Prediction</title>
+    <style>
+        body {
+            background-color: blue;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>StormStocks</h1>
+    <div>
+        <label for="ticker">Select Stock Ticker:</label>
+        <select id="ticker">
+            <option value="AAPL">AAPL</option>
+            <option value="MSFT">MSFT</option> 
+        </select>
+    </div>
+    <button id="predictButton">Predict</button>
+    <div id="prediction"></div>
+    <div id="chart"></div>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#predictButton').click(function() {
+            var ticker = $('#ticker').val();
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:5000/api/predict', // Change to the correct URL of your backend API
+                data: JSON.stringify({ 'ticker': ticker }),
+                contentType: 'application/json',
+                success: function(response) {
+                    $('#prediction').text('Predicted Price: ' + response.prediction);
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
