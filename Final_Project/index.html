@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Prediction</title>
+    <style>
+        body {
+            background-color: rgb(175, 188, 210);
+            padding: 20px;
+        }
+    </style>
+    
+</head>
+ 
+<body>
+    <h1>StormStocks</h1>
+   
+    <div>
+        <label for="ticker">Select Stock Ticker:</label>
+        <select id="ticker">
+            <option value="AAPL">AAPL</option>
+            <option value="BA">BA</option>
+            <option value="KO">KO</option>
+            <option value="DIS">DIS</option>
+            <option value="DOW">DOW</option>
+            <option value="GS">GS</option>
+            <option value="JPM">JPM</option>
+            <option value="MMM">MMM</option>
+            <option value="MSFT">MSFT</option> 
+            <option value="NKE">NKE</option>
+            <option value="VZ">VZ</option>
+            <option value="WMT">WMT</option>
+        </select>
+    </div>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="dashboard.js"></script>
+
+
+    <p>The Graph Will Be Generated 30 Seconds After The Button Is Pressed</p>
+
+    <button id="graphButton">LSTM RNN Model</button>
+    <div id="graph"></div>
+
+    
+
+    <button id="sentimentButton">Sentiment Weighted Monte Carlo Simulation</button>
+    <div id="graphsent"></div>
+
+    <button id="predictButton">Percent Return Prediction</button>
+    <div id="predict"></div>
+    <div id="predict_sent"></div>
+    
+
+</body>
+
+
+</html>
